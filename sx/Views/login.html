@@ -1,0 +1,18 @@
+﻿<md-dialog aria-label="Login" flex="50">
+    <md-dialog-content layout-padding>
+        <form name="loginForm" novalidate>
+            <md-input-container>
+                <label>Email Address</label>
+                <input type="email" ng-model="email" required />
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input type="password" ng-model="password" required />
+            </md-input-container>
+            <div class="md-actions">
+                <md-button class="md-raised md-warn" type="button" ng-click="cancel()">Cancel</md-button>
+                <md-button class="md-raised md-primary" ng-disabled="loginForm.$invalid" ng-click="login()">Login</md-button>
+            </div>
+        </form>
+    </md-dialog-content>
+</md-dialog>
