@@ -20,10 +20,38 @@
             <span>Claimsuite</span>
             <span flex></span>
             <md-button ng-click="login()" ng-hide="loggedIn">Login</md-button>
-            <md-button ng-click="logout()" ng-show="loggedIn">Logout</md-button>
+            <md-button ng-click="logout(true)" ng-show="loggedIn">Logout</md-button>
         </div>
     </md-toolbar>
-    <md-content><ng-view></ng-view></md-content>
+    <md-content layout="row">
+        <div flex></div>
+        <div flex-sm="100" flex-md="75" flex-gt-md="50">
+            <br />
+            <form novalidate>
+                <md-card>
+                    <md-toolbar layout="row" class="md-accent">
+                        <div class="md-toolbar-tools">
+                            <span>Binder Details</span>
+                        </div>
+                    </md-toolbar>
+                    <md-card-content>
+                        <md-input-container>
+                            <label>Agreement Number</label>
+                            <input type="text" ng-model="Binder.Reference" required />
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Unique Market Reference</label>
+                            <input type="text" ng-model="Binder.UMR" required />
+                        </md-input-container>
+                    </md-card-content>
+                    <div class="md-actions" layout="row" layout-align="end center">
+                        <md-button>Save</md-button>
+                    </div>
+                </md-card>
+            </form>
+        </div>
+        <div flex></div>
+    </md-content>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-animate.min.js"></script>
     <script src="Scripts/angular-aria.min.js"></script>

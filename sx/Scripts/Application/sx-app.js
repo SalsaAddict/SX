@@ -3,8 +3,8 @@
 sx.config(["$mdThemingProvider", function ($mdThemingProvider) {
 
     $mdThemingProvider.theme("default")
-        .primaryPalette("indigo")
-        .accentPalette("blue")
+        .primaryPalette("blue")
+        .accentPalette("grey")
         .warnPalette("red")
         .backgroundPalette("grey");
 
@@ -52,7 +52,11 @@ sx.run(["$rootScope", "$mdDialog", "$mdToast", "$http", "$window", function ($ro
         };
     };
 
-    $rootScope.logout = function () { $window.localStorage.token = null; $rootScope.loggedIn = false; };
+    $rootScope.logout = function (notify) {
+        $window.localStorage.token = null;
+        $rootScope.loggedIn = false;
+        if (notify) $mdToast.show($mdToast.simple().content("Logged out successfully.").capsule());
+    };
 
     $rootScope.loggedIn = ($window.localStorage.token) ? true : false;
 
